@@ -19,20 +19,7 @@
                     },
                     data: [{type: "line", dataPoints: data}],
                 });
-               
-                var chart = new CanvasJS.Chart("chart1", {
-                    title: {
-                        text: "Nodes"
-                    },
-                    axisX: {
-                        title: "X",
-                    },
-                    axisY: {
-                        title: "Y",
-                    },
-                    data: [{type: "line", dataPoints: data}],
-                });
-               
+                
             function updateChart() {
                     $.getJSON("data.php", function (result) {
                         if (dataLength !== result.length) {
@@ -61,10 +48,14 @@
         <div id="chart" style="width: 500px;height: 300px;">
         </div>
 
-<div id="chart1" style="width: 500px;height: 300px;">
-        </div>
 
-        
 
     </body>
-</html>
+</html><?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+

@@ -7,24 +7,29 @@ $database->query("SELECT DISTINCT nodeid from followers");
 $r = $database->resultSet();
 foreach ($r as $distinct)
 {
-//$distinctNode[] = ['nodeid' => $distinct['nodeid']];
-//echo json_encode($distinctNode);
-$database->query("SELECT x,y FROM followers where nodeid='no1' ");
+//$distinctNode[] = [$distinct['nodeid'] => $distinct['nodeid']];
+ $database->query("SELECT x,y FROM followers where nodeid='".$distinct['nodeid']."'");
 $result = $database->resultSet();
 foreach ($result as $res)
 {
-  // $point[] = ['x'=>$res['x'], 'y' => $res['y']];
+   $point[] = ['x'=>$res['x'], 'y' => $res['y'], 'node' => $distinct['nodeid']];
 
    //echo [{"x":"2","y":"10"},{"x":"5","y":"20"}];
 
     
-    
-}
-
 //echo json_encode($point);
 
     
 }
+
+}
+echo json_encode($point);
+
+//".$distinct['nodeid']."
+
+//echo json_encode($point);
+//echo json_encode($distinctNode);
+
 /*$con = mysqli_connect("localhost", "root", "", "follow");
 if (mysqli_connect_errno($con)) {
     echo "Failed to connect to DataBase: " . mysqli_connect_error();
